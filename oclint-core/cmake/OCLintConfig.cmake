@@ -80,6 +80,8 @@ IF(TEST_BUILD)
     ADD_DEFINITIONS(
         --coverage
         )
+    SET(CMAKE_CXX_FLAGS "-fsanitize=memory ${CMAKE_CXX_FLAGS}")
+    SET(CMAKE_SHARED_LINKER_FLAGS "-fsanitize=memory ${CMAKE_SHARED_LINKER_FLAGS}")
     INCLUDE_DIRECTORIES(
         ${GOOGLETEST_SRC}/googlemock/include
         ${GOOGLETEST_SRC}/googletest/include
